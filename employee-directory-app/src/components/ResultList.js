@@ -5,10 +5,11 @@ function ResultList(props) {
     <table className="table table-striped">
   <thead>
     <tr>
+      <th scope="col">Profile Photo</th>
       <th scope="col" onClick={props.handleSort}>#</th>
       <th scope="col">First</th>
       <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Email</th>
     </tr>
   </thead>
   <tbody>
@@ -16,12 +17,14 @@ function ResultList(props) {
        return  (
 
         <tr key={index}>
+          <td><img alt="profilepic" src={result.picture.thumbnail}/></td>
+          <td>{result.cell}</td>
           <td>{/* <img alt={result.title} className="img-fluid" src={result.images.original.url} /> */
           result.name.first}
           </td>
           <td>{result.name.last}</td>
-          {/* <td>{result.name.last}</td>
-          <td>{result.name.last}</td> */}
+          <td>{result.email}</td>
+         
         </tr>
       )})}
       </tbody>
