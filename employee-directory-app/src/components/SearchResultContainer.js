@@ -31,7 +31,7 @@ class SearchResultContainer extends Component {
     const filtered = this.state.allResults.filter(result => {
         return (result.name.first.toLowerCase().includes(value.toLowerCase())) || (result.name.last.toLowerCase().includes(value.toLowerCase()))
     } )
-   
+    // this.setState({filteredResults: filtered})
 
     this.setState({
       [name]: value,
@@ -53,25 +53,10 @@ class SearchResultContainer extends Component {
     })
 
     this.setState({ filteredResults : filter })
-    // let sortedProducts = [...products];
-    // res.data.results.sort((a, b) => {
-    //   if (a.name < b.name) {
-    //     return -1;
-    //   }
-    //   if (a.name > b.name) {
-    //     return 1;
-    //   }
-    //   return 0;
-    // });
-    // return (
-    //   <ResultList>
-    //     {/* as before */}
-    //   </ResultList>
-    // )
+    
   };
   
-  // add onclick
-  //look up sort list in js
+  
 
 
   render() {
@@ -83,7 +68,7 @@ class SearchResultContainer extends Component {
       </Hero>
         <SearchForm
           search={this.state.search}
-        //   handleFormSubmit={this.handleFormSubmit}
+        
           handleInputChange={this.handleInputChange}
         />
         <ResultList results={this.state.filteredResults} 
