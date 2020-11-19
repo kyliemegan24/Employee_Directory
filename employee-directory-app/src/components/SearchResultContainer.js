@@ -31,7 +31,7 @@ class SearchResultContainer extends Component {
     const filtered = this.state.allResults.filter(result => {
         return (result.name.first.toLowerCase().includes(value.toLowerCase())) || (result.name.last.toLowerCase().includes(value.toLowerCase()))
     } )
-    // this.setState({filteredResults: filtered})
+   
 
     this.setState({
       [name]: value,
@@ -43,8 +43,33 @@ class SearchResultContainer extends Component {
 
   handleSort = event => {
     event.preventDefault();
-    console.log("sort");
-  }
+    // const { products } = props;
+    const filter = this.state.filteredResults.sort((a,b) => {
+       
+        if (a.name.first < b.name.first) {
+            return -1;
+        }
+        else return 1;
+    })
+
+    this.setState({ filteredResults : filter })
+    // let sortedProducts = [...products];
+    // res.data.results.sort((a, b) => {
+    //   if (a.name < b.name) {
+    //     return -1;
+    //   }
+    //   if (a.name > b.name) {
+    //     return 1;
+    //   }
+    //   return 0;
+    // });
+    // return (
+    //   <ResultList>
+    //     {/* as before */}
+    //   </ResultList>
+    // )
+  };
+  
   // add onclick
   //look up sort list in js
 
@@ -52,13 +77,13 @@ class SearchResultContainer extends Component {
   render() {
     return (
       <div>
-         <Hero backgroundImage="">
+         <Hero backgroundImage="https://www.insperity.com/wp-content/uploads/2016/09/How-to-Avoid-Discrimination-when-Promoting-Employees-640x302.png">
         <h1>Employee Database</h1>
         <h4>Search Employees</h4>
       </Hero>
         <SearchForm
           search={this.state.search}
-          handleFormSubmit={this.handleFormSubmit}
+        //   handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
         />
         <ResultList results={this.state.filteredResults} 
@@ -66,6 +91,6 @@ class SearchResultContainer extends Component {
       </div>
     );
   }
-}
+};
 
 export default SearchResultContainer;

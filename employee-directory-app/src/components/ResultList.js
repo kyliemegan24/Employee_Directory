@@ -6,9 +6,9 @@ function ResultList(props) {
   <thead>
     <tr>
       <th scope="col">Profile Photo</th>
-      <th scope="col" onClick={props.handleSort}>#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
+      <th scope="col" >#</th>
+      <th scope="col" onClick={props.handleSort}>First</th>
+      <th scope="col" onClick={props.handleSort}>Last</th>
       <th scope="col">Email</th>
     </tr>
   </thead>
@@ -19,7 +19,7 @@ function ResultList(props) {
         <tr key={index}>
           <td><img alt="profilepic" src={result.picture.thumbnail}/></td>
           <td>{result.cell}</td>
-          <td>{/* <img alt={result.title} className="img-fluid" src={result.images.original.url} /> */
+          <td>{
           result.name.first}
           </td>
           <td>{result.name.last}</td>
